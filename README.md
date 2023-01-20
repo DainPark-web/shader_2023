@@ -6,4 +6,13 @@
 
 ### Uniforms
 
-iResolution, iGlobalTime (also as iTime), iTimeDelta, iFrame, iMouse, iMouseButton, iDate, iSampleRate, iChannelN with N in [0, 9] and iChannelResolution[]
+- iResolution,
+- iGlobalTime (also as iTime),
+- iTimeDelta,
+- iFrame,
+- iMouse,
+- iMouseButton,
+- iDate,
+- iSampleRate,
+- iChannelN with N in [0, 9]
+- iChannelResolution[]
