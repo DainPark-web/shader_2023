@@ -1,5 +1,6 @@
 // substract, min and max
 
+#include "./assets/lib.glsl" 
 
 float Circle(float r, float sr, vec2 uv, vec2 pos){
     return smoothstep(r, r - sr, length(uv - pos));
@@ -11,25 +12,23 @@ float Merge(float a, float b){
 }
 
 
-
 void main(){
     vec2 uv = 2. *  gl_FragCoord.xy/iResolution.xy - 1.;
     uv.x *= iResolution.x/iResolution.y;
     
-    // min, max
-    // float circle1 = Circle(0.5, 0.3, uv, vec2(0.5,0.1));
-    // float circle2 = Circle(0.5, 0.3, uv, vec2(-0.2,-0.1));
-    // float merg1 = Merge(circle1, circle2);
-
-    // float merg2 = Merge(merg1, Circle(0.2, 0.1, uv, vec2(-0.5,0.1)));
-
     float merge1;
-    for(int i = 0; i < 10; i++){
-        float circle2 = Circle(0.5, 0.45, uv, vec2(-0.2 * float(i),-0.1));
-
+    for(int i = 0; i < 50; i++){
+        float circle2 = Circle(random(vec2(i, i + 3)) * 0.7, 0.48, uv, 
+            vec2(
+                (random(vec2(float(i - 1), float(i + 1))) - 0.5) * 2. + sin(iTime + float(i) + random(vec2(i, i))), 
+                (random(vec2(float(i), float(i))) - 0.5) * 2. + cos(iTime + float(i) + random(vec2(i + 1, i + 3)))
+                )
+            );
         merge1 = Merge(merge1,circle2);
     }
     vec3 color = vec3(merge1);
 
-    gl_FragColor = vec4(color, 1.);
+    color.x = color.x * 0.8;
+
+    gl_FragColor = vec4(0.1/color, 1.);
 }
