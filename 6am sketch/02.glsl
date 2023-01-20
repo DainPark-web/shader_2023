@@ -31,7 +31,7 @@ void main(){
     vec3 color = vec3(f);
     for(int i = 0; i < 20; i++){
         float v = (float(i) * 1.);
-        float r =  Rect(uv, -2., 2., -0.005 + sin(iTime + (uv.x * v)) * (v * 0.05), 0.005 + sin(iTime + (uv.x * v)) * (v * 0.05), abs(uv.x * 0.03) + 0.0001);
+        float r =  Rect(uv, -2., 2., - 0.005 + sin(iTime + (uv.x * v)) * (v * 0.05), 0.005 + sin(iTime + (uv.x * v)) * (v * 0.05), abs(uv.x * 0.04) + 0.0001);
         f = Merge(f, r);
     }
     color = vec3(f);
