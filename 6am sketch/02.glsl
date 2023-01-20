@@ -22,7 +22,7 @@ void main(){
 
 
 
-    vec3 color = vec3(Rect(uv, -0.2, 0.2, -0.2, 0.2, 0.0002));
+    vec3 color = vec3(Rect(uv, -1., 1., -0.2 + sin(iTime + uv.x) * 0.4, 0.2 + sin(iTime + uv.x) * 0.4, 0.0002));
 
 
     gl_FragColor = vec4(color, 1.);
