@@ -35,6 +35,9 @@ void main(){
         f = Merge(f, r);
     }
     color = vec3(f);
+    color.x *= sin(iTime + uv.x) * 9. * uv.y;
+    color.y *= 0.7;
+    color.z *= 0.5;
 
     gl_FragColor = vec4(color, 1.);
 }
