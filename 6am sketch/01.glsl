@@ -20,8 +20,8 @@ void main(){
     for(int i = 0; i < 50; i++){
         float circle2 = Circle(random(vec2(i, i + 3)) * 0.7, 0.48, uv, 
             vec2(
-                (random(vec2(float(i - 1), float(i + 1))) - 0.5) * 2. + sin(iTime + float(i) + random(vec2(i, i))), 
-                (random(vec2(float(i), float(i))) - 0.5) * 2. + cos(iTime + float(i) + random(vec2(i + 1, i + 3)))
+                (random(vec2(float(i - 1), float(i + 1))) - 0.5) * 2. + sin(iTime * 0.5 + float(i) + random(vec2(i, i))), 
+                (random(vec2(float(i), float(i))) - 0.5) * 2. + cos(iTime * 0.5 + float(i) + random(vec2(i + 1, i + 3)))
                 )
             );
         merge1 = Merge(merge1,circle2);
